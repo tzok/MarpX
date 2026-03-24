@@ -125,10 +125,12 @@
   --marpx-table-font-size: 20px;
   --marpx-table-font-family: "IBM Plex Sans", sans-serif;
 
-  /* OVERFLOW WARNING - Default disabled */
-  --overflow-warning-display: none;
-  --overflow-warning-line-color: #ff9800;
-  --overflow-warning-safe-zone: 5%;  /* 95% height = 5% from bottom */
+  /* OVERFLOW LINE SYSTEM - Three states: subtle (default) | active | hidden */
+  --overflow-line-mode: subtle;  /* subtle | active | hidden */
+  --overflow-line-color-subtle: rgba(161, 161, 161, 0.25);
+  --overflow-line-color-active: #ff9800;
+  --overflow-line-safe-zone: 5%;  /* 95% height = 5% from bottom */
+  --overflow-line-display: block;
 }
 
 /* Structural CSS Overrides */
@@ -253,80 +255,80 @@ div.callout.warning h1 {
 }
 
 /* ============================================================
-   OVERFLOW WARNING SYSTEM
+   OVERFLOW LINE SYSTEM - Three States
    ============================================================
    
-   FEATURES:
-   - Orange safe zone line at 95% height
-   - Global enable via YAML: style: | :root { --overflow-warning-display: block; }
-   - Per-slide control via classes:
-     * _class: overflow-warning      (enable on this slide)
-     * _class: overflow-warning-off  (disable on this slide)
+   MODES:
+   1. SUBTLE (default): Elegant gray line, barely visible, always present
+   2. ACTIVE: Bright orange warning line for overflow detection  
+   3. HIDDEN: No line at all
    
-   USAGE:
-   ---
-   marp: true
-   theme: sklodowska-curie
-   style: |
-     :root {
-       --overflow-warning-display: block;
-     }
-   ---
+   PER-SLIDE CONTROL:
+   Default (no class): Shows subtle gray line
+   overflow-active: Force orange warning line
+   overflow-hidden: Hide line completely
 */
 
-/* Safe zone indicator line - appears at 95% of slide height */
+/* Default SUBTLE state - elegant gray line at 95% height */
 section::before {
   content: "";
   position: absolute;
-  bottom: var(--overflow-warning-safe-zone);
-  left: 80px;   /* Match slide padding-left */
-  right: 80px;  /* Match slide padding-right */
+  bottom: var(--overflow-line-safe-zone);
+  left: 80px;
+  right: 80px;
+  height: 1.5px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--overflow-line-color-subtle) 15%, 
+    var(--overflow-line-color-subtle) 85%, 
+    transparent 100%
+  );
+  opacity: 0.4;
+  display: block;
+  pointer-events: none;
+  z-index: 998;
+}
+
+/* Slide counter - bottom right corner, always visible */
+section::after {
+  background-color: #ffffffbd;
+  border-radius: 100px;
+  bottom: 22px;
+  color: var(--marpx-theme-color);
+  content: attr(data-marpit-pagination) "/" attr(data-marpit-pagination-total);
+  font-size: 14pt;
+  right: 50px;
+  left: auto;
+  margin: 0;
+  padding: 2px 8px;
+  position: absolute;
+  z-index: 1000;
+}
+
+/* ACTIVE state - bright orange warning line */
+section.overflow-active::before {
   height: 3px;
   background: linear-gradient(90deg, 
     transparent 0%, 
-    var(--overflow-warning-line-color) 10%, 
-    var(--overflow-warning-line-color) 90%, 
+    var(--overflow-line-color-active) 10%, 
+    var(--overflow-line-color-active) 90%, 
     transparent 100%
   );
-  opacity: 0.8;
-  display: var(--overflow-warning-display);
-  pointer-events: none;
-  z-index: 999;
-  box-shadow: 0 0 8px var(--overflow-warning-line-color);
+  opacity: 0.9;
+  box-shadow: 0 0 10px var(--overflow-line-color-active);
 }
 
-/* Warning text label near the safe zone line */
-section::after {
-  content: "SAFE ZONE - Content below may overflow";
-  position: absolute;
-  bottom: calc(var(--overflow-warning-safe-zone) + 8px);
-  right: 90px;
-  font-family: "IBM Plex Mono", monospace;
-  font-size: 9pt;
-  font-weight: 600;
-  color: var(--overflow-warning-line-color);
-  background: rgba(255, 152, 0, 0.15);
-  padding: 2px 8px;
-  border-radius: 3px;
-  border: 1px solid var(--overflow-warning-line-color);
-  display: var(--overflow-warning-display);
-  pointer-events: none;
-  z-index: 999;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
+/* HIDDEN state - no line */
+section.overflow-hidden::before {
+  display: none !important;
 }
 
-/* Override to hide on special slide types even when enabled */
+/* Hide both line and counter on special slide types */
 section.chapter::before,
 section.quote::before,
 section.title-academic::before,
 section.end::before,
-section.blank::before,
-section.chapter::after,
-section.quote::after,
-section.title-academic::after,
-section.end::after,
-section.blank::after {
+section.blank::before {
   display: none !important;
 }
 
@@ -398,17 +400,5 @@ section.autofit-tight table {
   font-size: 16px;
 }
 
-/* Per-slide overflow warning controls */
-section.overflow-warning {
-  --overflow-warning-display: block !important;
-}
+/* END OF THEME */
 
-section.overflow-warning-off {
-  --overflow-warning-display: none !important;
-}
-
-/* Hide overflow warnings when explicitly disabled on specific slide types */
-section.overflow-warning-off::before,
-section.overflow-warning-off::after {
-  display: none !important;
-}

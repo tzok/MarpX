@@ -131,3 +131,24 @@ size: banner
 | `--marpx-title_academic-title-font-weight`      | Defines the font weight for the main title on an academic title slide.       |
 | `--marpx-title_academic-title-size`             | Specifies the font size for the main title on an academic title slide.       |
 | `--marpx-title_academic-font-color`             | Sets the general text color for the academic title slide.                    |
+
+## Overflow Line System (Sklodowska-Curie Theme)
+
+A visual content boundary indicator available in the Sklodowska-Curie theme.
+
+|       Class       | Description                                                                                                                  | Usage                                                                                           |
+| :---------------: | :--------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------- |
+| **(none/default)** | Shows subtle gray line at 95% slide height. Elegant, barely visible, always present for content guidance.                   | `<section>` or no class specified                                                               |
+| **overflow-active** | Shows bright orange warning line with glow effect. Clearly indicates content approaching overflow limit.                       | `<section class="overflow-active">` when content is near the limit                            |
+| **overflow-hidden** | No line visible. Clean look for final presentations.                                                                         | `<section class="overflow-hidden">` for polished, presentation-ready slides                  |
+|    **autofit**    | Reduces font size and spacing to fit overflowing content. Moderate reduction (20pt font, 1.3 line-height).                    | `<section class="autofit">` when content slightly exceeds the safe zone                       |
+|  **autofit-tight**  | Aggressive font reduction for heavily overflowing content. More compact spacing (17pt font, 1.2 line-height).               | `<section class="autofit-tight">` when autofit is not sufficient                              |
+
+**Safe Zone Position:** 95% of slide height (5% from bottom)
+
+**Visual Guide:**
+- **Subtle (Default)**: Light gray `rgba(161, 161, 161, 0.25)`, 1.5px thickness, 40% opacity
+- **Active**: Bright orange `#ff9800`, 3px thickness, 90% opacity, glow effect
+- **Hidden**: No visual indicator
+
+**Slide Counter:** Always visible in bottom-right corner (e.g., "1/10", "2/10") regardless of line state
