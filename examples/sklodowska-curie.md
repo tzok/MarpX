@@ -141,33 +141,18 @@ Where:
 
 ---
 
-<!-- _class: references -->
+<!-- _class: overflow-active -->
 
-# References
+# Active Overflow Warning Mode
 
-1. **Curie, M.** (1911). *Traité de Radioactivité*. Paris: Gauthier-Villars.
+This slide uses `<!-- _class: overflow-active -->` to show the **bright orange warning line**.
 
-2. **Curie, E.** (1937). *Madame Curie: A Biography*. New York: Doubleday.
+**When you see the orange line:**
+- Content below it may overflow the slide
+- Consider using `.autofit` or `.autofit-tight`
+- Or split into multiple slides
 
-3. **Quinn, S.** (1995). *Marie Curie: A Life*. New York: Simon & Schuster.
-
-4. **Goldsmith, B.** (2005). *Obsessive Genius: The Inner World of Marie Curie*. New York: W.W. Norton.
-
----
-
-<!-- _class: overflow-warning -->
-
-# Content Overflow Demo (Warning Enabled)
-
-This slide has the overflow warning enabled. You can see the **orange safe zone line** at 95% height.
-
-**Notice:** Content below the orange line may overflow the slide boundaries. This visual guide helps you identify when to:
-
-1. Shorten the slide content
-2. Use `<!-- _class: autofit -->`
-3. Split into multiple slides
-
-**Example of overflowing content:**
+**Example of content near the limit:**
 - Point 1: Radioactivity research
 - Point 2: Discovery of radium
 - Point 3: Nobel Prize achievements
@@ -185,11 +170,9 @@ This slide has the overflow warning enabled. You can see the **orange safe zone 
 
 # Same Content with .autofit Applied
 
-This slide uses `<!-- _class: autofit -->` to fit all the content.
+This slide uses `<!-- _class: autofit -->` to fit all the content with reduced font size.
 
-**Notice:** The font size is slightly smaller, and line spacing is tighter.
-
-**Example of content that now fits:**
+**Example of content that now fits comfortably:**
 - Point 1: Radioactivity research
 - Point 2: Discovery of radium
 - Point 3: Nobel Prize achievements
@@ -203,36 +186,55 @@ This slide uses `<!-- _class: autofit -->` to fit all the content.
 
 ---
 
-<!-- _class: overflow-warning -->
+<!-- _class: references -->
 
-# Overflow Warning Usage Guide
+# References
 
-**To enable overflow warnings globally:**
-```yaml
+1. **Curie, M.** (1911). *Traité de Radioactivité*. Paris: Gauthier-Villars.
+
+2. **Curie, E.** (1937). *Madame Curie: A Biography*. New York: Doubleday.
+
+3. **Quinn, S.** (1995). *Marie Curie: A Life*. New York: Simon & Schuster.
+
+4. **Goldsmith, B.** (2005). *Obsessive Genius: The Inner World of Marie Curie*. New York: W.W. Norton.
+
 ---
-marp: true
-theme: sklodowska-curie
-style: |
-  :root {
-    --overflow-warning-display: block;
-  }
+
+# Overflow Line System Guide
+
+## Three States Available
+
+**1. SUBTLE (Default)**
+- Elegant light gray line at 95% height
+- Barely visible, blends into the theme
+- Always present to guide content placement
+
+**2. ACTIVE** (Orange Warning)
+- Bright orange line with glow effect
+- Clearly indicates potential overflow
+- Use when content approaches the limit
+
+**3. HIDDEN**
+- No line visible
+- Clean look for final presentations
+
 ---
-```
 
-**To enable on a specific slide:**
+# Control Methods
+
+## Per-Slide Control
+
 ```markdown
-<!-- _class: overflow-warning -->
+<!-- Default (no class): Shows subtle gray line -->
+<!-- _class: overflow-active -->  (force orange warning)
+<!-- _class: overflow-hidden -->   (hide line completely)
 ```
 
-**To disable on a specific slide (even if globally enabled):**
-```markdown
-<!-- _class: overflow-warning-off -->
-```
+**Default state (no class)**: Shows the subtle gray line at 95% height
 
-**When you see the orange line:**
-- Content below it may be cut off in export
-- Consider using `.autofit` or `.autofit-tight` classes
-- Or split content across multiple slides
+**overflow-active**: Bright orange warning line - use when content approaches the limit
+
+**overflow-hidden**: No line at all - clean look for final presentations
 
 ---
 
