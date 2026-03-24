@@ -13,6 +13,7 @@
 - [x] Einstein, Albert (1879-1955)
 - [x] Gropius, Walter (1883 - 1969)
 - [x] Gödel, Kurt (1906-1978)
+- [x] **Sklodowska-Curie, Marie (1867-1934)**
 
 # Under construction 
 - [x] Cantor, Georg (1845 - 1918)
