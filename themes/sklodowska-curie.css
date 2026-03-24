@@ -1,0 +1,414 @@
+/* @theme sklodowska-curie */
+
+@import "marpx";
+
+/* IBM Plex Sans for text, IBM Plex Mono for code */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap');
+
+:root {
+
+  /* IBM Color Palette - Primary colors */
+  --ibm-blue-100: #edf5ff;
+  --ibm-blue-200: #d0e2ff;
+  --ibm-blue-300: #a6c8ff;
+  --ibm-blue-400: #78a9ff;
+  --ibm-blue-50: #4589ff;
+  --ibm-blue-60: #0f62fe;
+  --ibm-blue-70: #0043ce;
+  --ibm-blue-80: #002d9c;
+  --ibm-blue-90: #001d6c;
+  --ibm-blue-1000: #001141;
+
+  /* Gray palette */
+  --ibm-gray-10: #f4f4f4;
+  --ibm-gray-20: #e0e0e0;
+  --ibm-gray-30: #c6c6c6;
+  --ibm-gray-40: #a8a8a8;
+  --ibm-gray-50: #8d8d8d;
+  --ibm-gray-60: #6f6f6f;
+  --ibm-gray-70: #525252;
+  --ibm-gray-80: #393939;
+  --ibm-gray-90: #262626;
+  --ibm-gray-100: #161616;
+
+  /* Accent colors */
+  --ibm-cyan-50: #1192e8;
+  --ibm-cyan-60: #0072c3;
+  --ibm-teal-50: #009d9a;
+  --ibm-teal-60: #007d79;
+  --ibm-purple-50: #a56eff;
+  --ibm-purple-60: #8a3ffc;
+  --ibm-red-50: #fa4d56;
+  --ibm-red-60: #da1e28;
+  --ibm-green-50: #24a148;
+  --ibm-green-60: #198038;
+
+  /* Theme color mapping - Professional, clean, accessible */
+  --color-background1: var(--ibm-gray-10);
+  --color-background2: var(--ibm-gray-100);
+  --color-font: var(--ibm-gray-100);
+  --color-font-h1: var(--ibm-blue-70);
+  --color-bold: var(--ibm-blue-60);
+  --color-marker: var(--ibm-blue-50);
+
+  /* MAIN GLOBAL PARAMETERS of THEME */
+  --marpx-theme-font-size: 23pt;
+  --marpx-theme-letter-spacing: 0.01px;
+  --marpx-theme-font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --marpx-theme-background-color: var(--color-background1);
+  --marpx-theme-font-color: var(--color-font);
+  --marpx-theme-bold-color: var(--color-bold);
+  --marpx-theme-marker-color: var(--color-marker);
+  --marpx-theme-h1-font-size: 32pt;
+  --marpx-theme-h1-color: var(--color-font-h1);
+  --marpx-theme-h1-bold-color: var(--ibm-blue-80);
+  --marpx-theme-h2-color: var(--ibm-blue-60);
+
+  /* SECONDARY GLOBAL PARAMETERS of THEME */
+  --marpx-theme-color: var(--ibm-blue-60);
+  --marpx-theme-figure-captiontext-color: var(--ibm-blue-70);
+  --marpx-theme-figure-captiontext: "Fig. ";
+  --marpx-theme-highlight-color: var(--ibm-blue-200);
+  --marpx-theme-table-captiontext: "Table ";
+  --marpx-theme-table-captiontext-color: var(--ibm-blue-70);
+  --marpx-theme-toc-color: var(--ibm-blue-60);
+
+  /* CHAPTER */
+  --marpx-theme-chapter-background-color: var(--ibm-blue-80);
+  --marpx-theme-chapter-h1-font-color: #ffffff;
+  --marpx-theme-chapter-h2-font-color: var(--ibm-blue-200);
+
+  /* TITLE ACADEMIC */
+  --marpx-title_academic-title-size: 130%;
+  --marpx-title_academic-subtitle-size: 85%;
+  --marpx-title_academic-author-size: 100%;
+  --marpx-title_academic-institute-size: 85%;
+  --marpx-title_academic-date-size: 85%;
+  --marpx-title_academic-title-font-weight: 600;
+  --marpx-title_academic-subtitle-font-weight: 500;
+  --marpx-title_academic-letter-spacing: 0.02px;
+
+  --marpx-title-header-color: var(--ibm-blue-60);
+  --marpx-title_academic-background-color: #ffffff;
+  --marpx-title_academic-title-color: var(--ibm-gray-100);
+  --marpx-title_academic-subtitle-color: var(--ibm-gray-70);
+  --marpx-title_academic-border-color: var(--ibm-blue-60);
+  --marpx-title_academic-author-color: var(--ibm-blue-60);
+  --marpx-title_academic-font-color: var(--ibm-gray-80);
+
+  /* QUOTE */
+  --marpx-quote-font-color: var(--ibm-gray-100);
+  --marpx-quote-background-color: var(--ibm-gray-10);
+  --marpx-quote-bold-color: var(--ibm-blue-60);
+  --marpx-quote-paragraph-background-color: inherit;
+  --marpx-quote_dark-font-color: #ffffff;
+  --marpx-quote_dark-bold-color: var(--ibm-blue-200);
+  --marpx-quote_dark-color-background: var(--ibm-blue-80);
+  --marpx-quote_dark-color-paragraph-background: inherit;
+
+  /* REFERENCES */
+  --marpx-references-background-color: var(--ibm-gray-10);
+  --marpx-references-header-color: var(--ibm-blue-60);
+  --marpx-references-bold-color: var(--ibm-blue-70);
+  --marpx-references-color: var(--ibm-gray-100);
+  --marpx-references-font-family: inherit;
+
+  /* TABLE */
+  --marpx-table-font-color: var(--ibm-gray-100);
+  --marpx-table-header-background-color: var(--ibm-gray-100);
+  --marpx-table-header-color-color: #ffffff;
+  --marpx-table-border-top-color: var(--ibm-blue-60);
+  --marpx-table-border-bottom-color: var(--ibm-gray-30);
+  --marpx-table-nth-child-color-color: var(--ibm-gray-10);
+  --marpx-table-hover-color: var(--ibm-blue-80);
+  --marpx-table-hover-background-color: var(--ibm-blue-100);
+  --marpx-table-font-size: 20px;
+  --marpx-table-font-family: "IBM Plex Sans", sans-serif;
+
+  /* OVERFLOW WARNING - Default disabled */
+  --overflow-warning-display: none;
+  --overflow-warning-line-color: #ff9800;
+  --overflow-warning-safe-zone: 5%;  /* 95% height = 5% from bottom */
+}
+
+/* Structural CSS Overrides */
+section {
+  line-height: 1.35em;
+}
+
+/* Code styling with IBM Plex Mono */
+section code:not(pre code) {
+  font-family: "IBM Plex Mono", "Courier New", Consolas, monospace;
+  color: var(--ibm-gray-100);
+  background: var(--ibm-blue-100) !important;
+  border: 1px solid var(--ibm-blue-300);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 0.92em;
+  font-weight: 500;
+  display: inline-block;
+}
+
+/* Links */
+section a {
+  color: var(--ibm-blue-60);
+  text-decoration: none;
+}
+
+section a:hover {
+  color: var(--ibm-blue-70);
+  text-decoration: underline;
+}
+
+/* Chapter slide enhancements */
+section.chapter {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--ibm-blue-80);
+}
+
+section.chapter::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(90deg, var(--ibm-blue-50), var(--ibm-cyan-50), var(--ibm-teal-50));
+}
+
+/* Quote slide styling */
+section.quote {
+  background-color: var(--ibm-gray-20) !important;
+  border-left: 6px solid var(--ibm-blue-60);
+}
+
+section.quote p {
+  font-style: italic;
+}
+
+section.quote strong {
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* Dark quote variant */
+section.quote.dark {
+  background-color: var(--ibm-blue-80) !important;
+  border-left: 6px solid var(--ibm-cyan-50);
+}
+
+section.quote.dark p {
+  color: #ffffff !important;
+}
+
+/* References styling */
+section.references a {
+  color: var(--ibm-blue-60);
+  font-weight: 500;
+}
+
+/* Table enhancements */
+section table th {
+  font-weight: 600;
+}
+
+section table tr:hover {
+  background-color: var(--ibm-blue-100) !important;
+  color: var(--ibm-blue-80) !important;
+}
+
+/* Callout enhancements */
+div.callout {
+  border-radius: 4px;
+  border-width: 1px;
+}
+
+div.callout.info {
+  background-color: var(--ibm-blue-100);
+  border-color: var(--ibm-blue-50);
+}
+
+div.callout.info h1 {
+  color: var(--ibm-blue-70);
+}
+
+div.callout.success {
+  background-color: #defbe6;
+  border-color: var(--ibm-green-50);
+}
+
+div.callout.success h1 {
+  color: var(--ibm-green-60);
+}
+
+div.callout.warning {
+  background-color: #fff8e1;
+  border-color: #ffc107;
+}
+
+div.callout.warning h1 {
+  color: #f1c21b;
+}
+
+/* ============================================================
+   OVERFLOW WARNING SYSTEM
+   ============================================================
+   
+   FEATURES:
+   - Orange safe zone line at 95% height
+   - Global enable via YAML: style: | :root { --overflow-warning-display: block; }
+   - Per-slide control via classes:
+     * _class: overflow-warning      (enable on this slide)
+     * _class: overflow-warning-off  (disable on this slide)
+   
+   USAGE:
+   ---
+   marp: true
+   theme: sklodowska-curie
+   style: |
+     :root {
+       --overflow-warning-display: block;
+     }
+   ---
+*/
+
+/* Safe zone indicator line - appears at 95% of slide height */
+section::before {
+  content: "";
+  position: absolute;
+  bottom: var(--overflow-warning-safe-zone);
+  left: 80px;   /* Match slide padding-left */
+  right: 80px;  /* Match slide padding-right */
+  height: 3px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    var(--overflow-warning-line-color) 10%, 
+    var(--overflow-warning-line-color) 90%, 
+    transparent 100%
+  );
+  opacity: 0.8;
+  display: var(--overflow-warning-display);
+  pointer-events: none;
+  z-index: 999;
+  box-shadow: 0 0 8px var(--overflow-warning-line-color);
+}
+
+/* Warning text label near the safe zone line */
+section::after {
+  content: "SAFE ZONE - Content below may overflow";
+  position: absolute;
+  bottom: calc(var(--overflow-warning-safe-zone) + 8px);
+  right: 90px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 9pt;
+  font-weight: 600;
+  color: var(--overflow-warning-line-color);
+  background: rgba(255, 152, 0, 0.15);
+  padding: 2px 8px;
+  border-radius: 3px;
+  border: 1px solid var(--overflow-warning-line-color);
+  display: var(--overflow-warning-display);
+  pointer-events: none;
+  z-index: 999;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Override to hide on special slide types even when enabled */
+section.chapter::before,
+section.quote::before,
+section.title-academic::before,
+section.end::before,
+section.blank::before,
+section.chapter::after,
+section.quote::after,
+section.title-academic::after,
+section.end::after,
+section.blank::after {
+  display: none !important;
+}
+
+/* ============================================================
+   AUTOFIT HELPER CLASSES
+   ============================================================
+   
+   Use when content overflows the safe zone:
+   <!-- _class: autofit -->
+   <!-- _class: autofit-tight -->
+*/
+
+/* Moderate reduction for slightly overflowing content */
+section.autofit {
+  font-size: 20pt;
+  line-height: 1.3;
+}
+
+section.autofit h1 {
+  font-size: 28pt;
+  margin-bottom: 0.4em;
+}
+
+section.autofit h2 {
+  font-size: 24pt;
+  margin-bottom: 0.3em;
+}
+
+section.autofit p,
+section.autofit li {
+  margin-bottom: 0.6em;
+}
+
+section.autofit pre {
+  font-size: 0.85em;
+}
+
+/* Aggressive reduction for heavily overflowing content */
+section.autofit-tight {
+  font-size: 17pt;
+  line-height: 1.2;
+}
+
+section.autofit-tight h1 {
+  font-size: 24pt;
+  margin-bottom: 0.3em;
+}
+
+section.autofit-tight h2 {
+  font-size: 20pt;
+  margin-bottom: 0.25em;
+}
+
+section.autofit-tight h3 {
+  font-size: 18pt;
+  margin-bottom: 0.2em;
+}
+
+section.autofit-tight p,
+section.autofit-tight li {
+  margin-bottom: 0.5em;
+}
+
+section.autofit-tight pre {
+  font-size: 0.75em;
+}
+
+section.autofit-tight table {
+  font-size: 16px;
+}
+
+/* Per-slide overflow warning controls */
+section.overflow-warning {
+  --overflow-warning-display: block !important;
+}
+
+section.overflow-warning-off {
+  --overflow-warning-display: none !important;
+}
+
+/* Hide overflow warnings when explicitly disabled on specific slide types */
+section.overflow-warning-off::before,
+section.overflow-warning-off::after {
+  display: none !important;
+}

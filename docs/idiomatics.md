@@ -10,4 +10,5 @@
 |          Russo |    ru     | Оглавление         | Указатель | Содержание     | Презентация        |
 |        Japonês |    ja     | 目次               | 索引      | 内容           | プレゼンテーション |
 |         Chinês |    zh     | 目录               | 索引      | 内容 (Nèiróng) | 演示 (Yǎnshì)      |
+|          Polonês |    pl   | Spis treści        | Indeks    | Treść          | Prezentacja        |
 |                |           |                    |           |                |                    |
