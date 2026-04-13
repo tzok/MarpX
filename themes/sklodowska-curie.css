@@ -43,6 +43,13 @@
   --ibm-green-50: #24a148;
   --ibm-green-60: #198038;
 
+  /* Custom Callout and UI colors */
+  --callout-success-bg: #defbe6;
+  --callout-warning-bg: #fff8e1;
+  --callout-warning-border: #ffc107;
+  --callout-warning-text: #f1c21b;
+  --slide-counter-bg: rgba(255, 255, 255, 0.74); /* Equivalent to #ffffffbd */
+
   /* Theme color mapping - Professional, clean, accessible */
   --color-background1: var(--ibm-gray-10);
   --color-background2: var(--ibm-gray-100);
@@ -52,14 +59,14 @@
   --color-marker: var(--ibm-blue-50);
 
   /* MAIN GLOBAL PARAMETERS of THEME */
-  --marpx-theme-font-size: 23pt;
+  --marpx-theme-font-size: 22pt;
   --marpx-theme-letter-spacing: 0.01px;
   --marpx-theme-font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --marpx-theme-background-color: var(--color-background1);
   --marpx-theme-font-color: var(--color-font);
   --marpx-theme-bold-color: var(--color-bold);
   --marpx-theme-marker-color: var(--color-marker);
-  --marpx-theme-h1-font-size: 32pt;
+  --marpx-theme-h1-font-size: 1.4em; /* 32pt / 22pt roughly ~1.45, rounded to 1.4 */
   --marpx-theme-h1-color: var(--color-font-h1);
   --marpx-theme-h1-bold-color: var(--ibm-blue-80);
   --marpx-theme-h2-color: var(--ibm-blue-60);
@@ -122,7 +129,7 @@
   --marpx-table-nth-child-color-color: var(--ibm-gray-10);
   --marpx-table-hover-color: var(--ibm-blue-80);
   --marpx-table-hover-background-color: var(--ibm-blue-100);
-  --marpx-table-font-size: 20px;
+  --marpx-table-font-size: 0.9em; /* 20px relative to ~29px */
   --marpx-table-font-family: "IBM Plex Sans", sans-serif;
 
 /* OVERFLOW LINE SYSTEM - Three states: subtle (default) | active | hidden */
@@ -142,13 +149,16 @@ section {
 section code:not(pre code) {
   font-family: "IBM Plex Mono", "Courier New", Consolas, monospace;
   color: var(--ibm-gray-100);
-  background: var(--ibm-blue-100) !important;
+  background: var(--ibm-blue-100);
   border: 1px solid var(--ibm-blue-300);
   border-radius: 4px;
   padding: 2px 6px;
   font-size: 0.92em;
   font-weight: 500;
   display: inline-block;
+}
+section :not(pre) > code {
+   background: var(--ibm-blue-100);
 }
 
 /* Links */
@@ -181,8 +191,8 @@ section.chapter::after {
 }
 
 /* Quote slide styling */
-section.quote {
-  background-color: var(--ibm-gray-20) !important;
+section.marpit.quote, section.quote {
+  background-color: var(--ibm-gray-20);
   border-left: 6px solid var(--ibm-blue-60);
 }
 
@@ -196,13 +206,13 @@ section.quote strong {
 }
 
 /* Dark quote variant */
-section.quote.dark {
-  background-color: var(--ibm-blue-80) !important;
+section.marpit.quote.dark, section.quote.dark {
+  background-color: var(--ibm-blue-80);
   border-left: 6px solid var(--ibm-cyan-50);
 }
 
 section.quote.dark p {
-  color: #ffffff !important;
+  color: #ffffff;
 }
 
 /* References styling */
@@ -216,9 +226,9 @@ section table th {
   font-weight: 600;
 }
 
-section table tr:hover {
-  background-color: var(--ibm-blue-100) !important;
-  color: var(--ibm-blue-80) !important;
+section.marpit table tr:hover, section table tr:hover {
+  background-color: var(--ibm-blue-100);
+  color: var(--ibm-blue-80);
 }
 
 /* Callout enhancements */
@@ -232,44 +242,31 @@ div.callout.info {
   border-color: var(--ibm-blue-50);
 }
 
-div.callout.info h1 {
+div.callout.info h4, div.callout.info .callout-title, div.callout.info h1 {
   color: var(--ibm-blue-70);
 }
 
 div.callout.success {
-  background-color: #defbe6;
+  background-color: var(--callout-success-bg);
   border-color: var(--ibm-green-50);
 }
 
-div.callout.success h1 {
+div.callout.success h4, div.callout.success .callout-title, div.callout.success h1 {
   color: var(--ibm-green-60);
 }
 
 div.callout.warning {
-  background-color: #fff8e1;
-  border-color: #ffc107;
+  background-color: var(--callout-warning-bg);
+  border-color: var(--callout-warning-border);
 }
 
-div.callout.warning h1 {
-  color: #f1c21b;
+div.callout.warning h4, div.callout.warning .callout-title, div.callout.warning h1 {
+  color: var(--callout-warning-text);
 }
 
 /* ============================================================
    OVERFLOW LINE SYSTEM - Three States
    ============================================================
-   
-   The line marks the bottom padding boundary (68px from bottom).
-   Content crossing this line overflows into the padding area.
-   
-   MODES:
-   1. SUBTLE (default): Elegant gray line, barely visible, always present
-   2. ACTIVE: Bright orange warning line for overflow detection  
-   3. HIDDEN: No line at all
-   
-   PER-SLIDE CONTROL:
-   Default (no class): Shows subtle gray line
-   overflow-active: Force orange warning line
-   overflow-hidden: Hide line completely
 */
 
 /* Default SUBTLE state - elegant gray line at bottom padding boundary */
@@ -294,12 +291,12 @@ section::before {
 
 /* Slide counter - bottom right corner, always visible */
 section::after {
-  background-color: #ffffffbd;
+  background-color: var(--slide-counter-bg);
   border-radius: 100px;
   bottom: 22px;
   color: var(--marpx-theme-color);
   content: attr(data-marpit-pagination) "/" attr(data-marpit-pagination-total);
-  font-size: 14pt;
+  font-size: 0.6em; /* 14pt relative to 22pt */
   right: 50px;
   left: auto;
   margin: 0;
@@ -322,17 +319,22 @@ section.overflow-active::before {
 }
 
 /* HIDDEN state - no line */
-section.overflow-hidden::before {
-  display: none !important;
+section.marpit.overflow-hidden::before, section.overflow-hidden::before {
+  display: none;
 }
 
 /* Hide both line and counter on special slide types */
+section.marpit.chapter::before,
+section.marpit.quote::before,
+section.marpit.title-academic::before,
+section.marpit.end::before,
+section.marpit.blank::before,
 section.chapter::before,
 section.quote::before,
 section.title-academic::before,
 section.end::before,
 section.blank::before {
-  display: none !important;
+  display: none;
 }
 
 /* ============================================================
@@ -346,17 +348,17 @@ section.blank::before {
 
 /* Moderate reduction for slightly overflowing content */
 section.autofit {
-  font-size: 20pt;
+  font-size: 0.9em; /* 20pt relative to 22pt */
   line-height: 1.3;
 }
 
 section.autofit h1 {
-  font-size: 28pt;
+  font-size: 1.3em;
   margin-bottom: 0.4em;
 }
 
 section.autofit h2 {
-  font-size: 24pt;
+  font-size: 1.15em;
   margin-bottom: 0.3em;
 }
 
@@ -371,22 +373,22 @@ section.autofit pre {
 
 /* Aggressive reduction for heavily overflowing content */
 section.autofit-tight {
-  font-size: 17pt;
+  font-size: 0.77em; /* 17pt relative to 22pt */
   line-height: 1.2;
 }
 
 section.autofit-tight h1 {
-  font-size: 24pt;
+  font-size: 1.3em;
   margin-bottom: 0.3em;
 }
 
 section.autofit-tight h2 {
-  font-size: 20pt;
+  font-size: 1.1em;
   margin-bottom: 0.25em;
 }
 
 section.autofit-tight h3 {
-  font-size: 18pt;
+  font-size: 1em;
   margin-bottom: 0.2em;
 }
 
@@ -400,8 +402,7 @@ section.autofit-tight pre {
 }
 
 section.autofit-tight table {
-  font-size: 16px;
+  font-size: 0.95em;
 }
 
 /* END OF THEME */
-
