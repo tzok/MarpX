@@ -138,16 +138,16 @@ A visual content boundary indicator available in the Sklodowska-Curie theme.
 
 |       Class       | Description                                                                                                                  | Usage                                                                                           |
 | :---------------: | :--------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------- |
-| **(none/default)** | Shows subtle gray line at 95% slide height. Elegant, barely visible, always present for content guidance.                   | `<section>` or no class specified                                                               |
-| **overflow-active** | Shows bright orange warning line with glow effect. Clearly indicates content approaching overflow limit.                       | `<section class="overflow-active">` when content is near the limit                            |
+| **(none/default)** | Shows subtle gray line at bottom padding boundary (68px). Elegant, barely visible, always present for content guidance. | `<section>` or no class specified |
+| **overflow-active** | Shows bright orange warning line with glow effect. Clearly indicates content overflowing into the bottom padding area. | `<section class="overflow-active">` when content overflows the boundary |
 | **overflow-hidden** | No line visible. Clean look for final presentations.                                                                         | `<section class="overflow-hidden">` for polished, presentation-ready slides                  |
-|    **autofit**    | Reduces font size and spacing to fit overflowing content. Moderate reduction (20pt font, 1.3 line-height).                    | `<section class="autofit">` when content slightly exceeds the safe zone                       |
+|    **autofit**    | Reduces font size and spacing to fit overflowing content. Moderate reduction (20pt font, 1.3 line-height).                    | `<section class="autofit">` when content overflows the boundary |
 |  **autofit-tight**  | Aggressive font reduction for heavily overflowing content. More compact spacing (17pt font, 1.2 line-height).               | `<section class="autofit-tight">` when autofit is not sufficient                              |
 
-**Safe Zone Position:** 95% of slide height (5% from bottom)
+**Position:** Bottom padding boundary (68px from bottom of slide)
 
 **Visual Guide:**
-- **Subtle (Default)**: Light gray `rgba(161, 161, 161, 0.25)`, 1.5px thickness, 40% opacity
+- **Subtle (Default)**: Light gray `rgba(161, 161, 161, 0.25)`, 1.5px thickness, 40% opacity, positioned at 68px from bottom
 - **Active**: Bright orange `#ff9800`, 3px thickness, 90% opacity, glow effect
 - **Hidden**: No visual indicator
 

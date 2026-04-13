@@ -148,7 +148,7 @@ Where:
 This slide uses `<!-- _class: overflow-active -->` to show the **bright orange warning line**.
 
 **When you see the orange line:**
-- Content below it may overflow the slide
+- Content below it overflows into the bottom padding area
 - Consider using `.autofit` or `.autofit-tight`
 - Or split into multiple slides
 
@@ -205,7 +205,7 @@ This slide uses `<!-- _class: autofit -->` to fit all the content with reduced f
 ## Three States Available
 
 **1. SUBTLE (Default)**
-- Elegant light gray line at 95% height
+- Light gray line at the bottom padding boundary (68px)
 - Barely visible, blends into the theme
 - Always present to guide content placement
 
@@ -230,7 +230,7 @@ This slide uses `<!-- _class: autofit -->` to fit all the content with reduced f
 <!-- _class: overflow-hidden -->   (hide line completely)
 ```
 
-**Default state (no class)**: Shows the subtle gray line at 95% height
+**Default state (no class)**: Shows the subtle gray line at the bottom padding boundary
 
 **overflow-active**: Bright orange warning line - use when content approaches the limit
 

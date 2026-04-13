@@ -125,11 +125,11 @@
   --marpx-table-font-size: 20px;
   --marpx-table-font-family: "IBM Plex Sans", sans-serif;
 
-  /* OVERFLOW LINE SYSTEM - Three states: subtle (default) | active | hidden */
-  --overflow-line-mode: subtle;  /* subtle | active | hidden */
+/* OVERFLOW LINE SYSTEM - Three states: subtle (default) | active | hidden */
+  --overflow-line-mode: subtle;                                 /* subtle | active | hidden */
   --overflow-line-color-subtle: rgba(161, 161, 161, 0.25);
   --overflow-line-color-active: #ff9800;
-  --overflow-line-safe-zone: 5%;  /* 95% height = 5% from bottom */
+  --overflow-line-safe-zone: 68px;                              /* aligned with bottom padding boundary */
   --overflow-line-display: block;
 }
 
@@ -258,6 +258,9 @@ div.callout.warning h1 {
    OVERFLOW LINE SYSTEM - Three States
    ============================================================
    
+   The line marks the bottom padding boundary (68px from bottom).
+   Content crossing this line overflows into the padding area.
+   
    MODES:
    1. SUBTLE (default): Elegant gray line, barely visible, always present
    2. ACTIVE: Bright orange warning line for overflow detection  
@@ -269,7 +272,7 @@ div.callout.warning h1 {
    overflow-hidden: Hide line completely
 */
 
-/* Default SUBTLE state - elegant gray line at 95% height */
+/* Default SUBTLE state - elegant gray line at bottom padding boundary */
 section::before {
   content: "";
   position: absolute;
