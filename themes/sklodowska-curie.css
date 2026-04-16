@@ -56,6 +56,7 @@
   --color-font: var(--ibm-gray-100);
   --color-font-h1: var(--ibm-blue-70);
   --color-bold: var(--ibm-blue-60);
+  --color-bold-italic: var(--ibm-red-60);
   --color-marker: var(--ibm-blue-50);
 
   /* MAIN GLOBAL PARAMETERS of THEME */
@@ -65,6 +66,7 @@
   --marpx-theme-background-color: var(--color-background1);
   --marpx-theme-font-color: var(--color-font);
   --marpx-theme-bold-color: var(--color-bold);
+  --marpx-theme-bold-italic-color: var(--color-bold-italic);
   --marpx-theme-marker-color: var(--color-marker);
   --marpx-theme-h1-font-size: 31pt;
   --marpx-theme-h1-color: var(--color-font-h1);
@@ -201,6 +203,33 @@ section.quote p {
 }
 
 section.quote strong {
+  font-style: normal;
+  font-weight: 600;
+}
+
+section em > strong,
+section strong > em {
+  color: var(--marpx-theme-bold-italic-color);
+}
+
+section h1 em > strong,
+section h1 strong > em,
+section h2 em > strong,
+section h2 strong > em,
+section h3 em > strong,
+section h3 strong > em,
+section h4 em > strong,
+section h4 strong > em,
+section h5 em > strong,
+section h5 strong > em,
+section h6 em > strong,
+section h6 strong > em {
+  color: var(--marpx-theme-bold-italic-color);
+}
+
+section.quote em > strong,
+section.quote strong > em {
+  color: var(--marpx-theme-bold-italic-color);
   font-style: normal;
   font-weight: 600;
 }
