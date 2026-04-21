@@ -81,6 +81,7 @@
   --marpx-theme-table-captiontext: "Table ";
   --marpx-theme-table-captiontext-color: var(--ibm-blue-70);
   --marpx-theme-toc-color: var(--ibm-blue-60);
+  --marpx-theme-brandlogo: " ";
 
   /* CHAPTER */
   --marpx-theme-chapter-background-color: var(--ibm-blue-80);
