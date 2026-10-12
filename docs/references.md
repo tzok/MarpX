@@ -132,23 +132,19 @@ size: banner
 | `--marpx-title_academic-title-size`             | Specifies the font size for the main title on an academic title slide.       |
 | `--marpx-title_academic-font-color`             | Sets the general text color for the academic title slide.                    |
 
-## Overflow Line System (Sklodowska-Curie Theme)
+## Font Size Classes (Sklodowska-Curie Theme)
 
-A visual content boundary indicator available in the Sklodowska-Curie theme.
+Scale the content of a slide down to a percentage of the theme's base font size.
 
-|       Class       | Description                                                                                                                  | Usage                                                                                           |
-| :---------------: | :--------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------- |
-| **(none/default)** | Shows subtle gray line at bottom padding boundary (68px). Elegant, barely visible, always present for content guidance. | `<section>` or no class specified |
-| **overflow-active** | Shows bright orange warning line with glow effect. Clearly indicates content overflowing into the bottom padding area. | `<section class="overflow-active">` when content overflows the boundary |
-| **overflow-hidden** | No line visible. Clean look for final presentations.                                                                         | `<section class="overflow-hidden">` for polished, presentation-ready slides                  |
-|    **autofit**    | Reduces font size and spacing to fit overflowing content. Moderate reduction (20pt font, 1.3 line-height).                    | `<section class="autofit">` when content overflows the boundary |
-|  **autofit-tight**  | Aggressive font reduction for heavily overflowing content. More compact spacing (17pt font, 1.2 line-height).               | `<section class="autofit-tight">` when autofit is not sufficient                              |
+| Class | Description                                                              | Usage                                          |
+| :---: | :----------------------------------------------------------------------- | :--------------------------------------------- |
+| `p9`  | Scales all content to 90% of the base font size.                         | `<!-- _class: p9 -->` for slightly long slides |
+| `p8`  | Scales all content to 80% of the base font size.                         | `<!-- _class: p8 -->` for denser slides        |
+| `p7`  | Scales all content to 70% of the base font size.                         | `<!-- _class: p7 -->`                          |
+| `p6`  | Scales all content to 60% of the base font size.                         | `<!-- _class: p6 -->`                          |
+| `p5`  | Scales all content to 50% of the base font size.                         | `<!-- _class: p5 -->` for maximum compression  |
 
-**Position:** Bottom padding boundary (68px from bottom of slide)
-
-**Visual Guide:**
-- **Subtle (Default)**: Light gray `rgba(161, 161, 161, 0.25)`, 1.5px thickness, 40% opacity, positioned at 68px from bottom
-- **Active**: Bright orange `#ff9800`, 3px thickness, 90% opacity, glow effect
-- **Hidden**: No visual indicator
-
-**Slide Counter:** Always visible in bottom-right corner (e.g., "1/10", "2/10") regardless of line state
+**Notes:**
+- Body text, headings (except the h1 title banner), lists, quotes and code scale proportionally.
+- Tables and callout headings are scaled explicitly.
+- The slide title banner keeps its fixed size.

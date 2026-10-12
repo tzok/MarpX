@@ -141,48 +141,23 @@ Where:
 
 ---
 
-<!-- _class: overflow-active -->
+<!-- _class: p8 -->
 
-# Active Overflow Warning Mode
+# Font Size Classes: p9 - p5
 
-This slide uses `<!-- _class: overflow-active -->` to show the **bright orange warning line**.
+This slide uses `<!-- _class: p8 -->` to scale all content down to **80%** of the base font size.
 
-**When you see the orange line:**
-- Content below it overflows into the bottom padding area
-- Consider using `.autofit` or `.autofit-tight`
-- Or split into multiple slides
+**Available classes:**
+- `p9` - 90% of the base font size
+- `p8` - 80% of the base font size
+- `p7` - 70% of the base font size
+- `p6` - 60% of the base font size
+- `p5` - 50% of the base font size
 
-**Example of content near the limit:**
-- Point 1: Radioactivity research
-- Point 2: Discovery of radium
-- Point 3: Nobel Prize achievements
-- Point 4: Scientific methodology
-- Point 5: Laboratory techniques
-- Point 6: Educational impact
-- Point 7: Legacy in science
-- Point 8: Marie Curie's influence
-- Point 9: Women in science
-- Point 10: Future applications
-
----
-
-<!-- _class: autofit -->
-
-# Same Content with .autofit Applied
-
-This slide uses `<!-- _class: autofit -->` to fit all the content with reduced font size.
-
-**Example of content that now fits comfortably:**
-- Point 1: Radioactivity research
-- Point 2: Discovery of radium
-- Point 3: Nobel Prize achievements
-- Point 4: Scientific methodology
-- Point 5: Laboratory techniques
-- Point 6: Educational impact
-- Point 7: Legacy in science
-- Point 8: Marie Curie's influence
-- Point 9: Women in science
-- Point 10: Future applications
+**Notes:**
+- Body text, headings (except the title banner), lists, quotes and code scale proportionally
+- Tables scale too, so dense tables fit comfortably
+- Use when content slightly overflows the slide
 
 ---
 
@@ -197,44 +172,6 @@ This slide uses `<!-- _class: autofit -->` to fit all the content with reduced f
 3. **Quinn, S.** (1995). *Marie Curie: A Life*. New York: Simon & Schuster.
 
 4. **Goldsmith, B.** (2005). *Obsessive Genius: The Inner World of Marie Curie*. New York: W.W. Norton.
-
----
-
-# Overflow Line System Guide
-
-## Three States Available
-
-**1. SUBTLE (Default)**
-- Light gray line at the bottom padding boundary (68px)
-- Barely visible, blends into the theme
-- Always present to guide content placement
-
-**2. ACTIVE** (Orange Warning)
-- Bright orange line with glow effect
-- Clearly indicates potential overflow
-- Use when content approaches the limit
-
-**3. HIDDEN**
-- No line visible
-- Clean look for final presentations
-
----
-
-# Control Methods
-
-## Per-Slide Control
-
-```markdown
-<!-- Default (no class): Shows subtle gray line -->
-<!-- _class: overflow-active -->  (force orange warning)
-<!-- _class: overflow-hidden -->   (hide line completely)
-```
-
-**Default state (no class)**: Shows the subtle gray line at the bottom padding boundary
-
-**overflow-active**: Bright orange warning line - use when content approaches the limit
-
-**overflow-hidden**: No line at all - clean look for final presentations
 
 ---
 
