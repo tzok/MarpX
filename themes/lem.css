@@ -1,0 +1,381 @@
+/* ================================================================================
+ *
+ *    lem.css - MarpX theme "lem"
+ *    In honor of Stanisław Lem (1921-2006)
+ *    Polish writer and futurologist: Solaris, The Cyberiad, Summa Technologiae.
+ *
+ *    Design language: "Mission-patch modernism"
+ *    Deep-space navy ink, Solaris-sun amber, alien-ocean teal,
+ *    on cool paper-white. Light content slides; dark cinematic chapters.
+ *
+ * ================================================================================
+ */
+
+/* @theme lem */
+
+@import "marpx";
+
+/* Space Grotesk for display, Inter for body, JetBrains Mono for code */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+:root {
+
+  /* ---- Void: deep-space navy ink ----------------------------------------- */
+  --lem-void-50: #F5F7FA;
+  --lem-void-100: #EAEEF5;
+  --lem-void-200: #D5DCE8;
+  --lem-void-300: #AFBBCE;
+  --lem-void-400: #8494AD;
+  --lem-void-500: #5C6E8C;
+  --lem-void-600: #43536E;
+  --lem-void-700: #2E3C53;
+  --lem-void-800: #1E2839;
+  --lem-void-900: #131A28;
+  --lem-void-950: #0B0F19;
+
+  /* ---- Solar: amber, the sun of Solaris ----------------------------------- */
+  --lem-solar-100: #FDF3E0;
+  --lem-solar-200: #FAE3B8;
+  --lem-solar-300: #F6CF85;
+  --lem-solar-400: #F1B95C;
+  --lem-solar-500: #EBA937;
+  --lem-solar-600: #D18F1D;
+  --lem-solar-700: #A66E12;
+  --lem-solar-800: #7A4E0B;
+
+  /* ---- Ion: teal, alien ocean and technology ------------------------------- */
+  --lem-ion-100: #DCF3F0;
+  --lem-ion-200: #B5E7E1;
+  --lem-ion-300: #7ED6CD;
+  --lem-ion-400: #3FBFB4;
+  --lem-ion-500: #1FA79B;
+  --lem-ion-600: #12877E;
+  --lem-ion-700: #0E6A64;
+  --lem-ion-800: #0A4E4A;
+
+  /* ---- Flare and Bio: semantic accents ------------------------------------- */
+  --lem-flare-100: #FBE3DB;
+  --lem-flare-500: #E4572E;
+  --lem-bio-100: #DDF2E5;
+  --lem-bio-500: #2F9E5F;
+  --lem-bio-700: #1F7A46;
+
+  /* Custom Callout and UI colors */
+  --callout-success-bg: var(--lem-bio-100);
+  --callout-warning-bg: var(--lem-solar-100);
+  --callout-warning-border: var(--lem-solar-400);
+  --callout-warning-text: var(--lem-solar-700);
+  --slide-counter-bg: rgba(255, 255, 255, 0.74);
+
+  /* Theme color mapping */
+  --color-background1: var(--lem-void-50);
+  --color-background2: var(--lem-void-900);
+  --color-font: var(--lem-void-900);
+  --color-font-h1: var(--lem-void-800);
+  --color-bold: var(--lem-solar-700);
+  --color-bold-italic: var(--lem-ion-600);
+  --color-marker: var(--lem-solar-500);
+
+  /* MAIN GLOBAL PARAMETERS of THEME */
+  --marpx-theme-font-size: 22pt;
+  --marpx-theme-letter-spacing: -0.01px;
+  --marpx-theme-font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --marpx-theme-background-color: var(--color-background1);
+  --marpx-theme-font-color: var(--color-font);
+  --marpx-theme-bold-color: var(--color-bold);
+  --marpx-theme-bold-italic-color: var(--color-bold-italic);
+  --marpx-theme-marker-color: var(--color-marker);
+  --marpx-theme-h1-font-size: 31pt;
+  --marpx-theme-h1-color: var(--color-font-h1);
+  --marpx-theme-h1-bold-color: var(--lem-solar-700);
+  --marpx-theme-h2-color: var(--lem-ion-700);
+
+  /* SECONDARY GLOBAL PARAMETERS of THEME */
+  --marpx-theme-color: var(--lem-ion-700);
+  --marpx-theme-figure-captiontext-color: var(--lem-ion-700);
+  --marpx-theme-figure-captiontext: "Fig. ";
+  --marpx-theme-highlight-color: var(--lem-solar-200);
+  --marpx-theme-table-captiontext: "Table ";
+  --marpx-theme-table-captiontext-color: var(--lem-ion-700);
+  --marpx-theme-toc-color: var(--lem-void-800);
+  --marpx-theme-toc-background-color: var(--lem-void-100);
+  --marpx-theme-brandlogo: " ";
+
+  /* CHAPTER */
+  --marpx-theme-chapter-background-color: var(--lem-void-900);
+  --marpx-theme-chapter-font-family: "Space Grotesk", "Inter", sans-serif;
+  --marpx-theme-chapter-h1-font-color: #ffffff;
+  --marpx-theme-chapter-h2-font-color: var(--lem-solar-300);
+
+  /* TITLE ACADEMIC */
+  --marpx-title_academic-title-size: 130%;
+  --marpx-title_academic-subtitle-size: 85%;
+  --marpx-title_academic-author-size: 100%;
+  --marpx-title_academic-institute-size: 85%;
+  --marpx-title_academic-date-size: 85%;
+  --marpx-title_academic-title-font-weight: 700;
+  --marpx-title_academic-subtitle-font-weight: 500;
+  --marpx-title_academic-letter-spacing: -0.02px;
+
+  --marpx-title-header-color: var(--lem-solar-700);
+  --marpx-title_academic-background-color: #ffffff;
+  --marpx-title_academic-title-color: var(--lem-void-900);
+  --marpx-title_academic-subtitle-color: var(--lem-void-500);
+  --marpx-title_academic-border-color: var(--lem-solar-500);
+  --marpx-title_academic-author-color: var(--lem-solar-700);
+  --marpx-title_academic-font-color: var(--lem-void-700);
+
+  /* QUOTE */
+  --marpx-quote-font-family: Faustina, Bookerly, Georgia, serif;
+  --marpx-quote-font-color: var(--lem-void-800);
+  --marpx-quote-background-color: var(--lem-void-100);
+  --marpx-quote-bold-color: var(--lem-ion-700);
+  --marpx-quote-paragraph-background-color: inherit;
+  --marpx-quote_dark-font: Faustina, Bookerly, Georgia, serif;
+  --marpx-quote_dark-font-color: #ffffff;
+  --marpx-quote_dark-bold-color: var(--lem-solar-300);
+  --marpx-quote_dark-color-background: var(--lem-void-900);
+  --marpx-quote_dark-color-paragraph-background: inherit;
+
+  /* REFERENCES */
+  --marpx-references-background-color: var(--lem-void-50);
+  --marpx-references-header-color: var(--lem-solar-700);
+  --marpx-references-bold-color: var(--lem-ion-700);
+  --marpx-references-color: var(--lem-void-900);
+  --marpx-references-font-family: inherit;
+
+  /* TABLE */
+  --marpx-table-font-color: var(--lem-void-900);
+  --marpx-table-header-background-color: var(--lem-void-900);
+  --marpx-table-header-color-color: #ffffff;
+  --marpx-table-border-top-color: var(--lem-solar-500);
+  --marpx-table-border-bottom-color: var(--lem-void-200);
+  --marpx-table-nth-child-color-color: var(--lem-void-100);
+  --marpx-table-hover-color: var(--lem-void-900);
+  --marpx-table-hover-background-color: var(--lem-solar-100);
+  --marpx-table-font-size: 14pt;
+  --marpx-table-font-family: "Inter", sans-serif;
+}
+
+/* Structural CSS Overrides */
+section {
+  line-height: 1.4em;
+}
+
+/* Headings: Space Grotesk, tight tracking */
+section h1 {
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+section h2,
+section h3,
+section h4,
+section h5,
+section h6 {
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  letter-spacing: -0.01em;
+}
+
+/* Code styling with JetBrains Mono */
+section code:not(pre code) {
+  font-family: "JetBrains Mono", "Courier New", Consolas, monospace;
+  color: var(--lem-solar-800);
+  background: var(--lem-solar-100);
+  border: 1px solid var(--lem-solar-300);
+  border-radius: 6px;
+  padding: 2px 6px;
+  font-size: 0.9em;
+  font-weight: 500;
+  display: inline-block;
+}
+
+section :not(pre) > code {
+  background: var(--lem-solar-100);
+}
+
+/* Links */
+section a {
+  color: var(--lem-ion-700);
+  text-decoration: none;
+}
+
+section a:hover {
+  color: var(--lem-solar-700);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Chapter slide enhancements */
+section.chapter {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: var(--lem-void-900);
+}
+
+/* The Solaris horizon: sun rising over an alien ocean */
+section.chapter::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(90deg, var(--lem-solar-500), var(--lem-ion-400), var(--lem-ion-600));
+  opacity: 1;
+}
+
+/* Quote slide styling */
+section.marpit.quote, section.quote {
+  background-color: var(--lem-void-200);
+  border-left: 6px solid var(--lem-solar-500);
+}
+
+section.quote p {
+  font-style: italic;
+}
+
+section.quote strong {
+  font-style: normal;
+  font-weight: 600;
+}
+
+section em > strong,
+section strong > em {
+  color: var(--marpx-theme-bold-italic-color);
+}
+
+section h1 em > strong,
+section h1 strong > em,
+section h2 em > strong,
+section h2 strong > em,
+section h3 em > strong,
+section h3 strong > em,
+section h4 em > strong,
+section h4 strong > em,
+section h5 em > strong,
+section h5 strong > em,
+section h6 em > strong,
+section h6 strong > em {
+  color: var(--marpx-theme-bold-italic-color);
+}
+
+section.quote em > strong,
+section.quote strong > em {
+  color: var(--marpx-theme-bold-italic-color);
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* Dark quote variant */
+section.marpit.quote.dark, section.quote.dark {
+  background-color: var(--lem-void-900);
+  border-left: 6px solid var(--lem-ion-400);
+}
+
+section.quote.dark p {
+  color: #ffffff;
+}
+
+/* References styling */
+section.references a {
+  color: var(--lem-ion-700);
+  font-weight: 500;
+}
+
+/* Table enhancements */
+section table th {
+  font-weight: 600;
+}
+
+section.marpit table tr:hover, section table tr:hover {
+  background-color: var(--lem-solar-100);
+  color: var(--lem-void-900);
+}
+
+/* Callout enhancements */
+div.callout {
+  border-radius: 6px;
+  border-width: 1px;
+}
+
+div.callout.info {
+  background-color: var(--lem-ion-100);
+  border-color: var(--lem-ion-400);
+}
+
+div.callout.info h4, div.callout.info .callout-title, div.callout.info h1 {
+  color: var(--lem-ion-700);
+}
+
+div.callout.success {
+  background-color: var(--callout-success-bg);
+  border-color: var(--lem-bio-500);
+}
+
+div.callout.success h4, div.callout.success .callout-title, div.callout.success h1 {
+  color: var(--lem-bio-700);
+}
+
+div.callout.warning {
+  background-color: var(--callout-warning-bg);
+  border-color: var(--callout-warning-border);
+}
+
+div.callout.warning h4, div.callout.warning .callout-title, div.callout.warning h1 {
+  color: var(--callout-warning-text);
+}
+
+/* Slide counter — bottom right corner, always visible */
+section::after {
+  background-color: var(--slide-counter-bg);
+  border-radius: 100px;
+  bottom: 22px;
+  color: var(--marpx-theme-color);
+  content: attr(data-marpit-pagination) "/" attr(data-marpit-pagination-total);
+  font-size: 13pt;
+  right: 50px;
+  left: auto;
+  margin: 0;
+  padding: 2px 8px;
+  position: absolute;
+  z-index: 1000;
+}
+
+/* ============================================================
+   FONT SIZE HELPER CLASSES
+   ============================================================
+
+   Scale the whole slide content down to a percentage of the
+   theme's base font size:
+   <!-- _class: p9 -->  (90% of base size)
+   <!-- _class: p8 -->  (80%)
+   <!-- _class: p7 -->  (70%)
+   <!-- _class: p6 -->  (60%)
+   <!-- _class: p5 -->  (50%)
+
+   Body text, h2-h6, lists, quotes and code scale automatically
+   (em-based). Tables and callout headings are scaled explicitly.
+   The h1 title banner keeps its fixed size.
+*/
+
+section.p9 { --fs-mult: 0.9; }
+section.p8 { --fs-mult: 0.8; }
+section.p7 { --fs-mult: 0.7; }
+section.p6 { --fs-mult: 0.6; }
+section.p5 { --fs-mult: 0.5; }
+
+section:is(.p9, .p8, .p7, .p6, .p5) {
+  font-size: calc(var(--marpx-theme-font-size) * var(--fs-mult));
+}
+
+section:is(.p9, .p8, .p7, .p6, .p5) table {
+  font-size: calc(var(--marpx-table-font-size) * var(--fs-mult));
+}
+
+section:is(.p9, .p8, .p7, .p6, .p5) div.callout > h1 {
+  font-size: calc(18pt * var(--fs-mult));
+}
+
+/* END OF THEME */

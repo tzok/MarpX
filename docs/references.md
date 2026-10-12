@@ -132,7 +132,7 @@ size: banner
 | `--marpx-title_academic-title-size`             | Specifies the font size for the main title on an academic title slide.       |
 | `--marpx-title_academic-font-color`             | Sets the general text color for the academic title slide.                    |
 
-## Font Size Classes (Sklodowska-Curie Theme)
+## Font Size Classes (Sklodowska-Curie and Lem Themes)
 
 Scale the content of a slide down to a percentage of the theme's base font size.
 

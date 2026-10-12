@@ -184,6 +184,7 @@ section.chapter::after {
   width: 100%;
   height: 8px;
   background: linear-gradient(90deg, var(--ibm-blue-50), var(--ibm-cyan-50), var(--ibm-teal-50));
+  opacity: 1;
 }
 
 /* Quote slide styling */
