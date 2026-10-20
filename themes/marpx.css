@@ -1189,6 +1189,48 @@ section.nobrand::after {
 
 /* 
 !================================================================================
+?-----------------------< FULLSCREEN SLIDE >----------------------- 
+!================================================================================
+*/
+
+section.fullscreen {
+  padding: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+/* Unwrap paragraph/figure wrappers, so the media itself becomes the
+   centered grid item */
+section.fullscreen>p,
+section.fullscreen>figure {
+  display: contents;
+}
+
+/* Images and videos: scale to the whole slide keeping the original aspect
+   ratio (letterboxed, never distorted) */
+section.fullscreen img,
+section.fullscreen video {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  margin: 0;
+}
+
+/* Iframes: keep the size/aspect ratio given by their width/height
+   attributes, centered and scaled down to fit the slide
+   (e.g. width="1280" height="720" fills a 16:9 slide) */
+section.fullscreen iframe {
+  max-width: 100%;
+  max-height: 100%;
+  margin: 0;
+  border: 0;
+}
+
+/* 
+!================================================================================
 ?-----------------------< CALLOUT >----------------------- 
 !================================================================================
 */

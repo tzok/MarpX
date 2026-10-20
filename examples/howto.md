@@ -1012,6 +1012,39 @@ You may use in semantics.
 
 ---
 
+<!-- _class: "fullscreen blank" -->
+
+![Full slide image](./assets/images/places/greece01.jpg)
+
+---
+
+<!-- _class: "black-slide nobrand" -->
+
+# \<!-- \_class: "fullscreen blank" -->
+
+```md
+<!-- _class: "fullscreen blank" -->
+
+## One big image on the whole slide, original aspect ratio preserved
+
+![Full slide image](./<location>/<image.jpg>)
+
+---
+
+<!-- _class: "fullscreen blank" -->
+
+## One big iframe on the whole slide (width/height set its ratio)
+
+<iframe src="https://<address>/<file>"
+    width="1280" height="720" frameborder="0" scrolling="no"></iframe>
+```
+
+For a 16:9 deck, `width="1280" height="720"` makes the iframe fill the
+entire slide; smaller sizes stay centered. Combine with `blank` (or
+`nobrand`) to hide header, footer and page number.
+
+---
+
 <!-- _class: "blank" -->
 
 <center>
