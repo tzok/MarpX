@@ -1045,6 +1045,45 @@ entire slide; smaller sizes stay centered. Combine with `blank` (or
 
 ---
 
+# Safe-area guide
+
+The dashed frame drawn over this slide marks the content area. Anything
+that crosses it is bleeding into the padding zone, which is how you spot
+overflow without any JavaScript.
+
+<!-- Add enough text to cross the bottom of the frame. -->
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua.
+
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+aliquip ex ea commodo consequat.
+
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+dolore eu fugiat nulla pariatur.
+
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+deserunt mollit anim id est laborum.
+
+---
+
+<!-- _class: "black-slide nobrand" -->
+
+# Safe-area guide
+
+Always on, HTML view only (hidden when printing to PDF). Tune it per theme:
+
+```css
+:root {
+  --marpx-theme-safe-area-color: rgba(128, 128, 128, 0.55);
+  --marpx-theme-safe-area-width: 1px; /* 0 disables the guide */
+}
+```
+
+Hidden automatically on `fullscreen`, `toc`, `title-bg` and `end-bg` slides.
+
+---
+
 <!-- _class: "blank" -->
 
 <center>

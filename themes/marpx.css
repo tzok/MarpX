@@ -244,6 +244,10 @@
 
   --marpx-theme-brandlogo: " (2025)";
 
+  /* SAFE-AREA GUIDE (CSS-only, no JS; see "SAFE-AREA GUIDE" section below) */
+  --marpx-theme-safe-area-color: rgba(128, 128, 128, 0.55);
+  --marpx-theme-safe-area-width: 1px;
+
   --marpx-theme-color: #3e6ceb;
   --marpx-theme-h1-color: var(--blueViolet-500);
   --marpx-theme-h1-bold-color: #ff3c00;
@@ -379,7 +383,13 @@ section {
   letter-spacing: var(--marpx-theme-letter-spacing);
   color: var(--marpx-theme-font-color);
   background: var(--marpx-theme-background-color);
-  padding: 145px 80px 68px 80px;
+  /* Slide padding is exposed as variables so the safe-area guide
+     (see "SAFE-AREA GUIDE" below) can mirror the content box exactly. */
+  --marpx-theme-padding-top: 145px;
+  --marpx-theme-padding-x: 80px;
+  --marpx-theme-padding-bottom: 68px;
+  padding: var(--marpx-theme-padding-top) var(--marpx-theme-padding-x)
+    var(--marpx-theme-padding-bottom) var(--marpx-theme-padding-x);
   background-size: contain;
 }
 
@@ -1228,6 +1238,60 @@ section.fullscreen iframe {
   max-height: 100%;
   margin: 0;
   border: 0;
+}
+
+/* 
+!================================================================================
+?-----------------------< SAFE-AREA GUIDE >----------------------- 
+!================================================================================
+*/
+
+/* No-JS overflow visibility aid.
+
+   Marpit renders every slide inside an SVG <foreignObject>, and in that
+   context container queries (scroll-state) and scroll-driven timelines
+   do not match, so dynamic overflow DETECTION in pure CSS is not
+   possible. Instead this draws a hairline frame over the content-box
+   boundary (the "type area"). Because the frame sits above the slide
+   content (z-index), any content that bleeds into the padding zone is
+   visibly crossed by the line — an instantly readable overflow signal,
+   in every browser, with zero JavaScript.
+
+   Set --marpx-theme-safe-area-width: 0 (per theme) to disable.
+*/
+
+section::before {
+  content: "";
+  position: absolute;
+  top: var(--marpx-theme-padding-top);
+  left: var(--marpx-theme-padding-x);
+  width: calc(100% - 2 * var(--marpx-theme-padding-x));
+  height: calc(100% - var(--marpx-theme-padding-top) - var(--marpx-theme-padding-bottom));
+  box-sizing: border-box;
+  border-style: dashed;
+  border-width: var(--marpx-theme-safe-area-width);
+  border-color: var(--marpx-theme-safe-area-color);
+  pointer-events: none;
+  z-index: 90;
+}
+
+/* Fullscreen media spans the whole slide: there is no type area. */
+section.fullscreen::before {
+  border-width: 0;
+}
+
+/* Slide classes that own section::before for other purposes keep it. */
+section.toc::before,
+section.title-bg::before,
+section.end-bg::before {
+  border-width: 0;
+}
+
+/* Keep final artifacts clean: PDF export renders with print media. */
+@media print {
+  section::before {
+    border-width: 0 !important;
+  }
 }
 
 /* 
