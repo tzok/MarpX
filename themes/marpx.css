@@ -1494,8 +1494,6 @@ section.quote p {
   line-height: 1.10em;
   font-family: var(--marpx-quote-font-family) !important;
   /*  font-style: oblique; */
-  padding-top: auto;
-  padding-bottom: auto;
   padding-left: 100px;
   padding-right: 100px;
 }
@@ -1529,8 +1527,6 @@ section.quote.dark p {
   letter-spacing: 0.1pt;
   text-align: center;
   line-height: 1.10em;
-  padding-top: auto;
-  padding-bottom: auto;
   padding-left: 85px;
   padding-right: 85px;
 }
