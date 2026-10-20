@@ -245,6 +245,8 @@ When all has been said and done, export your slide-deck to one of the available 
   Tweak colors, fonts, and layout variables in the CSS to match your branding or preferences.
 - **Slide Classes:**  
   Combine multiple classes (e.g., `<!-- _class: quote dark -->`) for even more control.
+- **No duplicate `@theme` names:**  
+  When deploying themes (CLI `--theme-set <dir>`, Marp server auto-discovery, VS Code settings), keep **only one CSS file per `@theme` name** inside the theme directory. A second copy of a theme in a subfolder (e.g., an old backup) registers first and silently shadows the current file, so `@import "that-theme"` binds to the stale copy.
 
 ## 💡 Interesting new features
 
