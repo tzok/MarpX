@@ -1056,7 +1056,7 @@ section.end-bg {
   padding-right: 515px;
   padding-left: 90px;
   padding-top: 185px;
-  font-size: 14pt;
+  font-size: var(--marpx-theme-font-size);
   /* white link color */
   --color-accent-fg: white;
   --fgColor-accent: white;
