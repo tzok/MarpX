@@ -1053,7 +1053,7 @@ section.end,
 section.end-bg {
   color: white;
   background-color: var(--marpx-theme-color);
-  padding-right: 515px;
+  padding-right: var(--marpx-theme-padding-x);
   padding-left: 90px;
   padding-top: 185px;
   font-size: var(--marpx-theme-font-size);
