@@ -73,6 +73,14 @@
   --marpx-theme-h1-bold-color: var(--ibm-blue-80);
   --marpx-theme-h2-color: var(--ibm-blue-60);
 
+  /* CODE */
+  /* Used by both inline code and block listings. Name a real family first:
+     Marp measures every listing to fit it to the slide, and if the family
+     cannot be resolved the measured height is 0, which collapses the block
+     to an invisible strip in HTML and in PDF export alike. Prefer a font
+     installed on the rendering machine (ttf-ibm-plex) over a webfont. */
+  --marpx-code-font-family: "IBM Plex Mono", "DejaVu Sans Mono", "Liberation Mono", "Courier New", Consolas, monospace;
+
   /* SECONDARY GLOBAL PARAMETERS of THEME */
   --marpx-theme-color: var(--ibm-blue-60);
   --marpx-theme-figure-captiontext-color: var(--ibm-blue-70);
@@ -143,7 +151,7 @@ section {
 
 /* Code styling with IBM Plex Mono */
 section code:not(pre code) {
-  font-family: "IBM Plex Mono", "Courier New", Consolas, monospace;
+  font-family: var(--marpx-code-font-family);
   color: var(--ibm-gray-100);
   background: var(--ibm-blue-100);
   border: 1px solid var(--ibm-blue-300);
@@ -152,6 +160,14 @@ section code:not(pre code) {
   font-size: 0.92em;
   font-weight: 500;
   display: inline-block;
+}
+
+/* Block listings: Marp wraps them in <marp-pre>, which the inline rule above
+   does not reach (it excludes `pre code`). Without this the block falls back
+   to Marp's bare `monospace` keyword, bypassing the theme's font. */
+section marp-pre,
+section marp-pre code {
+  font-family: var(--marpx-code-font-family);
 }
 section :not(pre) > code {
    background: var(--ibm-blue-100);
