@@ -38,6 +38,7 @@
   --ibm-teal-60: #007d79;
   --ibm-purple-50: #a56eff;
   --ibm-purple-60: #8a3ffc;
+  --ibm-red-30: #ffb3b8;
   --ibm-red-50: #fa4d56;
   --ibm-red-60: #da1e28;
   --ibm-green-50: #24a148;
@@ -302,6 +303,93 @@ div.callout.warning {
 
 div.callout.warning h4, div.callout.warning .callout-title, div.callout.warning h1 {
   color: var(--callout-warning-text);
+}
+
+/* ============================================================
+   DARK SLIDES: END / THANK-YOU AND CHAPTER
+   ============================================================
+   `section.end` (base theme) paints the slide with
+   --marpx-theme-color and forces white text, and `section.chapter`
+   uses --ibm-blue-80. In both cases the accent colours stay at the
+   values tuned for a light background, so on this theme bold
+   (--ibm-blue-60) and bold-italic (--ibm-red-60) landed at 1:1
+   contrast and simply vanished; heading bold (--ibm-blue-80) and
+   links were little better.
+
+   The end slide now uses the darker --ibm-blue-70 so that light
+   accent tints can reach AA contrast while staying in the IBM
+   palette. Everything here is scoped to the dark slide classes, so
+   regular light slides are untouched.
+*/
+section.end,
+section.end-bg,
+section.chapter {
+  /* Emphasis accents for a dark surface (AA on #0043ce) */
+  --marpx-theme-bold-color: var(--ibm-blue-200);
+  --marpx-theme-h1-bold-color: var(--ibm-blue-200);
+  --marpx-theme-bold-italic-color: var(--ibm-red-30);
+  --marpx-theme-marker-color: var(--ibm-blue-300);
+}
+
+section.chapter {
+  /* Body copy inherits --marpx-theme-font-color (near black) otherwise. */
+  color: #ffffff;
+}
+
+section.end,
+section.end-bg {
+  background-color: var(--ibm-blue-70);
+}
+
+section:is(.end, .end-bg, .chapter) a {
+  color: var(--ibm-blue-200);
+  text-decoration: underline;
+}
+
+section:is(.end, .end-bg, .chapter) a:hover {
+  color: #ffffff;
+}
+
+/* Marp's default blockquote colour is a mid grey: unreadable here. */
+section:is(.end, .end-bg, .chapter) blockquote {
+  color: var(--ibm-blue-200);
+  border-left-color: var(--ibm-blue-300);
+}
+
+/* Figure and table captions inherit the dark body colour otherwise. */
+section:is(.end, .end-bg, .chapter) :is(figcaption, .figcaption, tabcaption, .tabcaption) {
+  color: var(--ibm-blue-200);
+}
+
+/* Light "islands": tables, callouts, boxes and inline code keep their
+   pale backgrounds, so text and emphasis inside them must go back to
+   the light-slide palette or they disappear (white on near-white).
+   .callout.danger and .callout.failure already define their own text
+   colour for a saturated background, so they are left alone. */
+section:is(.end, .end-bg, .chapter) :is(table, div.callout:not(.danger):not(.failure), .box, box, bbox, .container, .notes, .highlight) {
+  color: var(--ibm-gray-100);
+  --marpx-theme-bold-color: var(--color-bold);
+  --marpx-theme-h1-bold-color: var(--ibm-blue-80);
+  --marpx-theme-bold-italic-color: var(--color-bold-italic);
+  --marpx-theme-marker-color: var(--color-marker);
+}
+
+/* Inline code already sets its own dark colour. */
+section:is(.end, .end-bg, .chapter) code:not(pre code) {
+  color: var(--ibm-gray-100);
+  border-color: var(--ibm-blue-200);
+  --marpx-theme-bold-color: var(--color-bold);
+  --marpx-theme-bold-italic-color: var(--color-bold-italic);
+}
+
+/* Links inside those light islands sit on a pale background again,
+   so they need the regular light-slide link colour. */
+section:is(.end, .end-bg, .chapter) :is(div.callout:not(.danger):not(.failure), .box, box, bbox, .container, .notes, .highlight) a {
+  color: var(--ibm-blue-60);
+}
+
+section:is(.end, .end-bg, .chapter) :is(div.callout:not(.danger):not(.failure), .box, box, bbox, .container, .notes, .highlight) a:hover {
+  color: var(--ibm-blue-70);
 }
 
 /* Slide counter — bottom right corner, always visible */
