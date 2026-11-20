@@ -191,16 +191,15 @@ section.chapter {
   background-repeat: no-repeat;
   background-position: center;
   background-color: var(--ibm-blue-80);
+  /* Decorative 8 px accent bar: keep it off ::after so that the base
+     theme's chapter opacity rule does not hide the pagination counter. */
+  border-bottom: 8px solid transparent;
+  border-image: linear-gradient(90deg, var(--ibm-blue-50), var(--ibm-cyan-50), var(--ibm-teal-50)) 1;
 }
 
+/* The base theme hides the counter on chapter slides; restore it so the
+   shared bottom-right pagination rule above applies unchanged. */
 section.chapter::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 8px;
-  background: linear-gradient(90deg, var(--ibm-blue-50), var(--ibm-cyan-50), var(--ibm-teal-50));
   opacity: 1;
 }
 
